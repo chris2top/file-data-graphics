@@ -36,7 +36,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/futil.o \
-	${OBJECTDIR}/main.o
+	${OBJECTDIR}/graphics.o \
+	${OBJECTDIR}/main.o \
+	${OBJECTDIR}/menu.o \
+	${OBJECTDIR}/sorting.o
 
 
 # C Compiler Flags
@@ -68,10 +71,25 @@ ${OBJECTDIR}/futil.o: futil.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/futil.o futil.cpp
 
+${OBJECTDIR}/graphics.o: graphics.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/graphics.o graphics.cpp
+
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+
+${OBJECTDIR}/menu.o: menu.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/menu.o menu.cpp
+
+${OBJECTDIR}/sorting.o: sorting.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/sorting.o sorting.cpp
 
 # Subprojects
 .build-subprojects:

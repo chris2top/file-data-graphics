@@ -5,6 +5,9 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>futil.h</itemPath>
+      <itemPath>graphics.h</itemPath>
+      <itemPath>menu.h</itemPath>
+      <itemPath>sorting.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -14,7 +17,10 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>futil.cpp</itemPath>
+      <itemPath>graphics.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
+      <itemPath>menu.cpp</itemPath>
+      <itemPath>sorting.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -59,7 +65,19 @@
       </item>
       <item path="futil.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="graphics.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="graphics.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="menu.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="menu.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="sorting.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="sorting.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -101,7 +119,19 @@
       </item>
       <item path="futil.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="graphics.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="graphics.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="menu.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="menu.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="sorting.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="sorting.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>
