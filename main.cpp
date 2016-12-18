@@ -102,6 +102,31 @@ void selection(int a[], int n, int i, int j) { //recursive  working?
     }
 }
 
+int divide(int a[], int start, int end) {
+    int pivot = a[end];
+    int i = start - 1;
+    for (int j = start; j < end; j++) {
+        if (a[j] <= pivot) {
+            i++;
+            swap(a[i], a[j]);
+        }
+    }
+    swap(a[i + 1], a[end]);
+    return i + 1;
+}
+
+void quicksort_(int a[], int start, int end){
+    if(start < end){
+        int p = divide(a, start, end);
+        quicksort_(a, start, p-1);
+        quicksort_(a, p+1, end);
+    }
+}
+
+void quicksort(int a[], int n){
+    quicksort_(a, 0, n-1);
+}
+
 int min(int a[], int n) {
     int min = a[0];
     for (int i = 1; i < n; i++) if (a[i] < a[0]) min = a[i];
@@ -125,37 +150,39 @@ int* rev(int a[], int n) { //iteral
     return rev;
 }
 
-void show_data_vertically(int a[], int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<a[i];j++) cout << "*";
+void show_data_vertically(int a[], int n) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < a[i]; j++) cout << "*";
         cout << endl;
     }
 }
 
-void show_data_horizontally(int a[], int n){
+void show_data_horizontally(int a[], int n) {
     int m = max(a, n);
-    for(int i=m;i>0;i--){
-        for(int j=0;j<n;j++){
-            if(a[j]>=i)cout << "+";
+    for (int i = m; i > 0; i--) {
+        for (int j = 0; j < n; j++) {
+            if (a[j] >= i)cout << "+";
             else cout << " ";
-        }cout << endl;
+        }
+        cout << endl;
     }
 }
 
-int count_char(string file, char c){
-    int cnt=0;
-    for(auto s:file) if(s==c)cnt++;
+int count_char(string file, char c) {
+    int cnt = 0;
+    for (auto s : file) if (s == c)cnt++;
     return cnt;
 }
 
-
 int main(int argc, char** argv) {
-    char chars[4] = {'a','d','m'};
+    char chars[4] =  {'a', 'd', 'm'};
     int a[4]{};
     string file = file_lines("fo");
-    for(int i=0; i<4;i++) a[i]=count_char(file, chars[i]);
+    for (int i = 0; i < 4; i++) a[i] = count_char(file, chars[i]);
     show_data_horizontally(a, 4);
-    for(int i=0;i<4;i++){cout<<chars[i];};
+    for (int i = 0; i < 4; i++) {
+        cout << chars[i];
+    };
     return 0;
 }
 
