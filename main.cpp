@@ -115,16 +115,16 @@ int divide(int a[], int start, int end) {
     return i + 1;
 }
 
-void quicksort_(int a[], int start, int end){
-    if(start < end){
+void quicksort_(int a[], int start, int end) {
+    if (start < end) {
         int p = divide(a, start, end);
-        quicksort_(a, start, p-1);
-        quicksort_(a, p+1, end);
+        quicksort_(a, start, p - 1);
+        quicksort_(a, p + 1, end);
     }
 }
 
-void quicksort(int a[], int n){
-    quicksort_(a, 0, n-1);
+void quicksort(int a[], int n) {
+    quicksort_(a, 0, n - 1);
 }
 
 int min(int a[], int n) {
@@ -174,15 +174,70 @@ int count_char(string file, char c) {
     return cnt;
 }
 
-int main(int argc, char** argv) {
-    char chars[4] =  {'a', 'd', 'm'};
-    int a[4]{};
-    string file = file_lines("fo");
-    for (int i = 0; i < 4; i++) a[i] = count_char(file, chars[i]);
-    show_data_horizontally(a, 4);
-    for (int i = 0; i < 4; i++) {
-        cout << chars[i];
+string filename() {
+    string filename;
+    cout << "Enter the file's name: ";
+    cin >> filename;
+    return filename;
+}
+
+char* menu(int& n) {
+    int cnt;
+    cout << "Enter the numbers of chars u r searching for: ";
+    cin >> cnt;
+    n = cnt;
+    char* chars = new char[cnt] {
     };
+    cout << "Enter the chars u r searching for:  (seperated by a space)";
+    for (int i = 0; i < cnt; i++)cin >> chars[i];
+    return chars;
+}
+
+int menu_action() {
+    string action;
+    string actions[]{"(1) show Data horizontally", "(2) Quit"};
+    for (int i = 0; i < 2; i++) cout << actions[i] << endl;
+    cin >> action;
+    return stoi(action);
+}
+
+enum menu_actions {
+    SHOW_DATA=1,
+    QUIT
+};
+
+int main(int argc, char** argv) {
+    int n;
+    int* a;
+    char* chars;
+    int action;
+    do {
+        try{
+        string name = filename();
+        a = new int[n] {
+        };
+        chars = menu(n);
+        string file = file_lines(name);
+        for (int i = 0; i < n; i++) a[i] = count_char(file, chars[i]);
+        action = menu_action();
+        switch (action) {
+            case SHOW_DATA:
+                show_data_horizontally(a, n);
+                for (int i = 0; i < n; i++) cout << chars[i];
+                break;
+            case QUIT:
+                break;
+        }
+        cout << endl;
+        }catch(...){
+            cout << "invalid input";
+        }
+    } while (action != 2);
+
+    delete[] a;
+    delete[] chars;
+    a = NULL;
+    chars = NULL;
     return 0;
 }
 
